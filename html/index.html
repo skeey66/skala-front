@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📑 김승현의 아카이브 사이트</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="page-desktop">
+    <div class="container container-home">
+        <div class="desktop">
+
+            <div class="window home-window pixel-corner">
+                <div class="titlebar">
+                    <span class="name">🖥 바로 가기</span>
+                    <span class="controls"><span class="ctl">_</span><span class="ctl">▢</span><span class="ctl">×</span></span>
+                </div>
+                <div class="win-body">
+                    <header class="profile-row">
+                        <div class="profile-left">
+                            <div class="avatar pixel-corner"><span class="pixel-avatar"></span></div>
+                            <div>
+                                <h1 class="typewriter">김승현의 아카이브</h1>
+                                <p class="tagline">저의 프로필, 학습 내용, 여행 기록을 모아둔 HUB 페이지입니다.</p>
+                            </div>
+                        </div>
+                        
+                    </header>
+
+                    <nav class="icon-row">
+                        <a class="dicon" href="myProfile.html"><span class="glyph pixel-corner">🧑</span><span class="lbl">프로필</span></a>
+                        <a class="dicon" href="myClass.html"><span class="glyph pixel-corner">🗓</span><span class="lbl">시간표 & 식단표</span></a>
+                        <a class="dicon" href="myHoliday.html"><span class="glyph pixel-corner">🌴</span><span class="lbl">휴일 일정</span></a>
+                        <a class="dicon" href="myTrip.html"><span class="glyph pixel-corner">🖼</span><span class="lbl">사진 앨범</span></a>
+                        <a class="dicon" href="signUp.html"><span class="glyph pixel-corner">✉️</span><span class="lbl">회원 가입</span></a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <main>
+                    <div class="window notepad pixel-corner">
+                        <div class="titlebar">
+                            <span class="name">🖍 공지사항</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl">▢</span><span class="ctl">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <section>
+                                <div class="date">작성일: 2026.07.16</div>
+                                <h3><a href="myTrip.html">[업데이트] 여행 앨범에 동영상 추가 완료!</a></h3>
+                                <p>대만에서 베이징덕을 해체하는 동영상을 추가했습니다. 이제 소리와 영상으로 여행을 추억할 수 있습니다.</p>
+                                <br>
+                                <div class="date">작성일: 2026.07.14</div>
+                                <h3><a href="myProfile.html">SKALA 4기 입과</a></h3>
+                                <p>소속이 변경(전북대학교 -> SKALA 4기) 되었습니다. 확인해보세요!</p>
+                                
+                                
+                            </section>
+                            <span class="chalk-doodle">떠든 사람: 김 ㅇㅇ</span>
+                        </div>
+
+                    </div>
+
+                    <div class="window viewer pixel-corner">
+                        <div class="titlebar">
+                            <span class="name">📷 베스트 샷</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl">▢</span><span class="ctl">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <section>
+                                <figure class="photo">
+                                    <span class="pixel-heart"></span>
+                                    <img src="../media/타이페이101.jpeg" width="400" height="600" alt="타이페이101">
+                                </figure>
+                                <dl>
+                                    <dt>제목</dt><dd>타이페이101에서</dd>
+                                    <dt>연도</dt><dd>2025</dd>
+                                    <dt>내용</dt><dd>세계에서 2번째로 높은 건물.. 실제로 올라가보니 건물 내부에서 지진이 난 것 처럼 흔들렸다.</dd>
+                                </dl>
+                            </section>
+                        </div>
+                    </div>
+                </main>
+
+                <aside>
+                    <div class="window sysprop pixel-corner">
+                        <div class="titlebar">
+                            <span class="name">⚙ 실시간 날씨 정보</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <div class="row"><span>현재 위치</span><b>광주광역시 광산구</b></div>
+                            <div class="row row-weather"><span>날씨</span><b id="local-weather">날씨 불러오는 중... ⏳</b></div>
+                            <div class="row"><span>참고자료</span><b><a href="https://www.weather.go.kr/w/index.do" target="_blank">실시간 날씨 사이트 ↗</a></b></div>
+                        </div>
+                    </div>
+
+                    <div class="window worldweather pixel-corner">
+                        <div class="titlebar">
+                            <span class="name">🌍 세계 날씨 정보</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <select id="city-select" class="retro-select pixel-corner">
+                                <option value="none">도시를 선택하세요</option>
+                                <option value="37.56,126.97">대한민국 서울 🇰🇷</option>
+                                <option value="35.67,139.65">일본 도쿄 🇯🇵</option>
+                                <option value="48.85,2.35">프랑스 파리 🇫🇷</option>
+                                <option value="40.71,-74.01">미국 뉴욕 🇺🇸</option>
+                                <option value="51.51,-0.13">영국 런던 🇬🇧</option>
+                                <option value="-33.87,151.21">호주 시드니 🇦🇺</option>
+                                <option value="39.90,116.41">중국 베이징 🇨🇳</option>
+                                <option value="25.20,55.27">아랍에미리트 두바이 🇦🇪</option>
+                            </select>
+                            <div id="weather-box" class="weather-result pixel-corner">
+                                <p>도시를 선택하면 좌표가 표시됩니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="window launcher pixel-corner">
+                        <div class="titlebar">
+                            <span class="name">🎮 미니게임 천국</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <button type="button" class="app pixel-corner" onclick="openBaseballGame()"><span class="g">⚾</span>숫자야구</button>
+                            <button type="button" class="app pixel-corner" onclick="findAcorn()"><span class="g">🐿️</span>도토리찾기</button>
+                            <button type="button" class="app pixel-corner" onclick="openArrowGame()"><span class="g">🏹</span>화살피하기</button>
+                            <button type="button" class="app pixel-corner" onclick="openLadderGame()"><span class="g">🪜</span>사다리타기</button>
+                        </div>
+                    </div>
+
+                    <div class="window launcher pixel-corner">
+                        <div class="titlebar">
+                            <span class="name">🧰 편리한 도구</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <button type="button" class="app pixel-corner" onclick="checkGrade()"><span class="g">📊</span>학점 계산기</button>
+                            <button type="button" class="app pixel-corner" onclick="showMyBag()"><span class="g">🎒</span>챙겨야 할 품목 보기</button>
+                        </div>
+                    </div>
+
+                    <div id="ladder-backdrop" class="acorn-backdrop" style="display: none;" onclick="closeLadderGame()"></div>
+
+                    <div class="window ladderwin pixel-corner" id="ladder-window" style="display: none;">
+                        <div class="titlebar">
+                            <span class="name">🪜 사다리타기</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl" onclick="closeLadderGame()">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <div class="ladder-controls">
+                                <label for="ladder-count">인원</label>
+                                <select id="ladder-count" class="retro-select pixel-corner" onchange="rebuildLadder()">
+                                    <option value="2">2명</option>
+                                    <option value="3">3명</option>
+                                    <option value="4" selected>4명</option>
+                                    <option value="5">5명</option>
+                                    <option value="6">6명</option>
+                                </select>
+                                <button type="button" class="acorn-restart" onclick="rebuildLadder()">🔄 새 사다리</button>
+                            </div>
+                            <div class="ladder-names" id="ladder-top-names"></div>
+                            <canvas id="ladder-canvas" width="300" height="240"></canvas>
+                            <div class="ladder-names" id="ladder-bottom-names"></div>
+                            <p id="ladder-status">🪜 위 이름을 클릭하면 결과를 확인할 수 있어요!</p>
+                        </div>
+                    </div>
+
+                    <div id="baseball-backdrop" class="acorn-backdrop" style="display: none;" onclick="closeBaseballGame()"></div>
+
+                    <div class="window baseballwin pixel-corner" id="baseball-window" style="display: none;">
+                        <div class="titlebar">
+                            <span class="name">⚾ 숫자야구</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl" onclick="closeBaseballGame()">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <p id="baseball-status">⚾ 서로 다른 숫자 3자리를 맞춰보세요!</p>
+                            <div class="baseball-input-row">
+                                <input type="text" id="baseball-guess" maxlength="3" inputmode="numeric" placeholder="예: 123">
+                                <button type="button" class="acorn-restart" onclick="submitBaseballGuess()">확인</button>
+                            </div>
+                            <div class="baseball-log-wrap">
+                                <table class="baseball-log" border="1" cellpadding="4" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>회차</th>
+                                            <th>입력</th>
+                                            <th>결과</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="baseball-log-rows"></tbody>
+                                </table>
+                            </div>
+                            <button type="button" class="acorn-restart" onclick="startBaseballGame()">🔄 다시하기</button>
+                        </div>
+                    </div>
+
+                    <div id="grade-backdrop" class="acorn-backdrop" style="display: none;" onclick="closeGradeCalc()"></div>
+
+                    <div class="window gradewin pixel-corner" id="grade-window" style="display: none;">
+                        <div class="titlebar">
+                            <span class="name">📊 학점 계산기</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl" onclick="closeGradeCalc()">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <table class="grade-table" border="1" cellpadding="5" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>과목명</th>
+                                        <th>학점</th>
+                                        <th>성적</th>
+                                        <th>전공</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="grade-rows"></tbody>
+                            </table>
+                            <button type="button" class="grade-add-btn" onclick="addGradeRow()">➕ 과목 추가</button>
+                            <p class="grade-result" id="grade-result">과목명과 학점, 성적을 입력하고 계산하기를 눌러주세요.</p>
+                            <button type="button" class="acorn-restart" onclick="calculateGPA()">🧮 평점 계산하기</button>
+                        </div>
+                    </div>
+
+                    <div id="acorn-backdrop" class="acorn-backdrop" style="display: none;" onclick="findAcorn()"></div>
+
+                    <div class="window acornwin pixel-corner" id="acorn-window" style="display: none;">
+                        <div class="titlebar">
+                            <span class="name">🐿️ 도토리찾기</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl" onclick="findAcorn()">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <div class="acorn-difficulty">
+                                <button type="button" class="acorn-diff-btn active" data-diff="easy" onclick="setAcornDifficulty('easy')">쉬움</button>
+                                <button type="button" class="acorn-diff-btn" data-diff="normal" onclick="setAcornDifficulty('normal')">보통</button>
+                                <button type="button" class="acorn-diff-btn" data-diff="hard" onclick="setAcornDifficulty('hard')">어려움</button>
+                            </div>
+                            <p id="acorn-status">🐿️ 도토리 10개가 숨어있어요. 칸을 클릭해서 피해보세요!</p>
+                            <div id="acorn-grid" class="acorn-grid"></div>
+                            <button type="button" class="acorn-restart" onclick="startAcornGame()">🔄 다시하기</button>
+                        </div>
+                    </div>
+
+                    <div id="arrow-backdrop" class="acorn-backdrop" style="display: none;" onclick="closeArrowGame()"></div>
+
+                    <div class="window arrowwin pixel-corner" id="arrow-window" style="display: none;">
+                        <div class="titlebar">
+                            <span class="name">🏹 화살피하기</span>
+                            <span class="controls"><span class="ctl">_</span><span class="ctl" onclick="closeArrowGame()">×</span></span>
+                        </div>
+                        <div class="win-body">
+                            <p id="arrow-status">🏹 방향키(WASD)로 움직여서 화살을 피하세요!</p>
+                            <canvas id="arrow-canvas" width="320" height="320"></canvas>
+                            <p id="arrow-score">⏱ 생존 시간: 0.0초</p>
+                            <button type="button" class="acorn-restart" onclick="startArrowGame()">🔄 다시하기</button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="window footerwin pixel-corner">
+                <div class="titlebar">
+                    <span class="name">📞 연락 방법</span>
+                    <span class="controls"><span class="ctl">_</span><span class="ctl">×</span></span>
+                </div>
+                <footer class="win-body">
+                    <span>이메일 문의: skeey66@naver.com | 전화 번호: 010-9464-1163</span>
+                    <span><small>© 2026 김승현의 아카이브. 모든 태그는 웹 표준 시맨틱 태그로 작성되었습니다.</small></span>
+                </footer>
+            </div>
+
+        </div>
+    </div>
+    <script src="../script/baseball.js"></script>
+    <script src="../script/grade.js"></script>
+    <script src="../script/bag.js"></script>
+    <script src="../script/findAcorn.js"></script>
+    <script src="../script/arrowDodge.js"></script>
+    <script src="../script/ladder.js"></script>
+    <script type="module" src="../script/realtimeInfo.js"></script>
+
+</body>
+</html>
