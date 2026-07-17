@@ -1,45 +1,55 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches: ["main"] # 본인의 메인 브랜치 이름 확인 (main 또는 master)
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps:deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      # 1. 빈 배포용 임시 폴더(_site)를 만듭니다.
+      - name: Create deployment directory
+        run: mkdir _site
+
+      # 2. html 폴더 안에 있는 실제 파일들을 배포 폴더 최상위로 꺼냅니다.
+      - name: Move HTML files to root of deployment
+        run: cp -r html/* _site/
+
+      # 3. 상위 폴더에 있던 css, script, media 폴더들도 배포 폴더에 같이 넣어줍니다.
+      - name: Copy assets to deployment
+        run: |
+          cp -r css _site/ 2>/dev/null || true
+          cp -r script _site/ 2>/dev/null || true
+          cp -r media _site/ 2>/dev/null || true
+
+      # 4. GitHub Pages용 설정을 초기화합니다.
       - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Copy assets to html folder
-        run: cp -r css script media html/ 2>/dev/null || true
+        uses: actions/configure-pages@v4
+
+      # 5. 완성된 _site 폴더를 업로드합니다. (여기에 index.html이 최상위에 위치하게 됩니다)
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: 'html'
+          path: '_site'
+
+      # 6. 최종 배포를 진행합니다.
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
