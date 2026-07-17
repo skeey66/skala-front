@@ -33,8 +33,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Copy assets to html folder
-        run: cp -r css script media html/ 2>/dev/null || true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
